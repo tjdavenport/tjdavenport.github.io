@@ -11,6 +11,12 @@ class DomPlane {
       y: (this.$el.height() / 2),
     };
   }
+  get bottomRightPoint() {
+    return {
+      x: this.$el.width(),
+      y: this.$el.height(),
+    };
+  }
   distanceFromCenter(x, y) {
     return {
       x: (this.centerPoint.x - x),
@@ -25,25 +31,44 @@ class StaticDomPlane extends DomPlane {
     this.$el.width($(window).width());
   }
   centerWithin(domPlane) {
-    domPlane.setPosition(
-      -(domPlane.centerPoint.x - this.centerPoint.x),
-      -(domPlane.centerPoint.y - this.centerPoint.y)
-    );
+    domPlane.setPositionX(-(domPlane.centerPoint.x - this.centerPoint.x));
+    domPlane.setPositionY(-(domPlane.centerPoint.y - this.centerPoint.y));
   } 
 }
 
 class AbsoluteDomPlane extends DomPlane {
-  setPosition(x, y) {
+  setBounds(x, y) {
+    this.useBounds = true;
+    this.boundLeft = x;
+    this.boundRight = -(this.$el.width() - ($(window).width() - x));
+    this.boundTop = -(this.$el.height() - ($(window).height() - y));
+    this.boundBottom = y;
+  }
+  setPositionX(x) {
     this.$el.css({
       left: `${x}px`,
+    });
+  }
+  setPositionY(y) {
+    this.$el.css({
       top: `${y}px`,
     });
   }
   shift(distX, distY) {
-    this.setPosition(
-      (this.offset.left + distX),
-      (this.offset.top + distY)
-    );
+    const newX = (this.offset.left + distX);
+    const newY = (this.offset.top + distY)
+
+    if (this.useBounds) {
+      if ((newX <= this.boundLeft) && (newX >= this.boundRight)) {
+        this.setPositionX(newX);
+      }
+      if ((newY <= this.boundBottom) && (newY >= this.boundTop)) {
+        this.setPositionY(newY);
+      }
+    } else {
+      this.setPositionX(newX);
+      this.setPositionY(newY);
+    }
   }
 }
 
@@ -52,8 +77,20 @@ const body = new StaticDomPlane($('body'));
 
 body.fillWindow();
 body.centerWithin(board);
+board.setBounds(200, 200);
+
+let position = body.centerPoint;
+let started = false;
+
+setInterval(() => {
+  if (started) {
+    board.shift((position.x / 60), (position.y / 45));
+  }
+}, 5);
 
 body.$el.mousemove((event) => {
-  const distance = body.distanceFromCenter(event.pageX, event.pageY);
-  board.shift((distance.x / 15), (distance.y / 15));
+  started = true;
+  position = body.distanceFromCenter(event.pageX, event.pageY);
 });
+
+//board.$el.mouseleave(() => { started = false });
