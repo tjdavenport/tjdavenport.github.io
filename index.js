@@ -1,27 +1,34 @@
 const DomPlane = require('./lib/Planes');
+const channel = require('./lib/channel');
 
-const board = new DomPlane.Absolute($('#app'));
+const state = channel.request('state');
+const board = new DomPlane.Absolute($('#app'), (event) => {
+  channel.trigger('board:click', {
+    x: event.offsetX,
+    y: event.offsetY,
+  });
+});
 const body = new DomPlane.Static($('body'));
 
-board.$el.click((event) => {
-  console.log({ x: event.offsetX, y: event.offsetY });
-});
 
 body.fillWindow();
 body.centerWithin(board);
-board.setBounds(100, 100);
+board.setBounds(state.xbounds, state.ybounds);
 
 let position = body.centerPoint;
 let started = false;
 
 setInterval(() => {
-  if (started) {
-    board.shift((position.x / 60), (position.y / 45));
+  if (!state.paused) {
+    board.shift((state.position.x / 60), (state.position.y / 45));
   }
 }, 5);
 
 body.$el.mousemove((event) => {
-  started = true;
-  position = body.distanceFromCenter(event.pageX, event.pageY);
+  channel.trigger('change:state', { key: 'paused', value: false });
+  channel.trigger('change:state', {
+    key: 'position',
+    value: body.distanceFromCenter(event.pageX, event.pageY),
+  });
 });
 

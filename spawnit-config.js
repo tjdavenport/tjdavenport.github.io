@@ -5,5 +5,6 @@ module.exports = {
     './node_modules/underscore/underscore.js',
     './node_modules/backbone/backbone.js',
     './node_modules/backbone.radio/build/backbone.radio.js',
+    './node_modules/backbone.marionette/lib/backbone.marionette.js',
   ],
 };
