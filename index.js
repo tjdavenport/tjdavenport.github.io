@@ -1,14 +1,21 @@
-const DomPlane = require('./lib/Planes');
+const planes = require('./lib/planes');
 const channel = require('./lib/channel');
 
 const state = channel.request('state');
-const board = new DomPlane.Absolute($('#app'), (event) => {
-  channel.trigger('board:click', {
-    x: event.offsetX,
-    y: event.offsetY,
-  });
+const board = new planes.Absolute({
+  el: '#app',
+  events: {
+    'click'(e) {
+      channel.trigger('board:click', {
+        x: event.offsetX,
+        y: event.offsetY,
+      });
+    },
+  }
 });
-const body = new DomPlane.Static($('body'));
+const body = new planes.Static({
+  el: 'body',
+});
 
 
 body.fillWindow();
