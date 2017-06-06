@@ -1,5 +1,10 @@
+const stringify = require('stringify');
+
 module.exports = {
   errorNotify: true,
+  browserifyOpts: {
+    transform: [stringify],
+  },
   scripts: [
     './node_modules/jquery/dist/jquery.js',
     './node_modules/underscore/underscore.js',
