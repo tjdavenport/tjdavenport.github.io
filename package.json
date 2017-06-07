@@ -17,7 +17,7 @@
     "spawnit": "0.0.6"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/spawnit"
+    "dev": "cd dev && ../node_modules/.bin/spawnit"
   },
   "stringify": {
     "appliesTo": {

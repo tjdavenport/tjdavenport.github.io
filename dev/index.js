@@ -1,14 +1,14 @@
-const planes = require('./lib/planes');
-const channel = require('./lib/channel');
-const ItemCollection = require('./lib/ItemCollection');
-const ItemCollectionView = require('./lib/ItemCollectionView');
+const planes = require('../lib/planes');
+const channel = require('../lib/channel');
+const ItemCollection = require('../lib/ItemCollection');
+const ItemCollectionView = require('../lib/ItemCollectionView');
 
 const state = channel.request('state');
 const items = new ItemCollection();
 
 const board = new planes.Absolute({
   id: 'board',
-  template: _.template(require('./lib/board.html')),
+  template: _.template(require('../lib/board.html')),
   regions: {
     'items': '[data-region="items"]',
   },
@@ -26,11 +26,11 @@ const RootView = Mn.View.extend({
     'pane': '[data-region="pane"]',
     'board': '[data-region="board"]',
   },
-  template: _.template(require('./lib/root-view.html')),
+  template: _.template(require('../lib/root-view.html')),
 });
 
 const pane = new planes.Static({
-  template: _.template(require('./lib/pane.html')),
+  template: _.template(require('../lib/pane.html')),
   id: 'pane'
 });
 
