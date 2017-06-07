@@ -59,10 +59,6 @@ body {
     padding: 25px;
     position: relative;
     z-index:99999;
-    background: -moz-linear-gradient(-45deg, rgba(0,0,0,0.91) 16%, rgba(0,0,0,0.91) 31%, rgba(0,0,0,0.03) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, rgba(0,0,0,0.91) 16%,rgba(0,0,0,0.91) 31%,rgba(0,0,0,0.03) 98%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, rgba(0,0,0,0.91) 16%,rgba(0,0,0,0.91) 31%,rgba(0,0,0,0.03) 98%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 }
 h1 {
     font-family: 'Droid Sans', sans-serif;

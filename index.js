@@ -12,14 +12,6 @@ const board = new planes.Absolute({
   regions: {
     'items': '[data-region="items"]',
   },
-  events: {
-    'click'(e) {
-      channel.trigger('board:click', {
-        x: event.offsetX,
-        y: event.offsetY,
-      });
-    },
-  },
   onRender() {
     const itemsView = new ItemCollectionView({
       collection: items,
@@ -46,17 +38,34 @@ const app = new Mn.Application({
   region: '#app',
   onStart() {
     const root = new RootView();
+    let shiftX = -0.25;
+    let shiftY = -0.25;
     this.showView(root);
     root.showChildView('pane', pane);
     root.showChildView('board', board);
 
     pane.fillWindow();
-    //pane.centerWithin(board);
     board.setBounds(state.xbounds, state.ybounds);
+
+    board.on('touch-top', () => {
+      shiftY = -0.25;
+    });
+
+    board.on('touch-right', () => {
+      shiftX = 0.25;
+    });
+
+    board.on('touch-bottom', () => {
+      shiftY = 0.25;
+    });
+
+    board.on('touch-left', () => {
+      shiftX = -0.25;
+    });
 
     setInterval(() => {
       if (!state.paused) {
-        board.shift(-0.25, -0.25);
+        board.shift(shiftX, shiftY);
       }
     }, 5);
   },
