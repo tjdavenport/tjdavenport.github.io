@@ -50,8 +50,39 @@ body {
     background-image: url('/stardust.png');
     background-color: black;
     position: absolute;
-    height: 5000px;
-    width: 5000px;
+    height: 2310px;
+    width: 2310px;
     left: 0px;
     top: 0px;
+}
+#pane {
+    padding: 25px;
+    position: relative;
+    z-index:99999;
+    background: -moz-linear-gradient(-45deg, rgba(0,0,0,0.91) 16%, rgba(0,0,0,0.91) 31%, rgba(0,0,0,0.03) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(0,0,0,0.91) 16%,rgba(0,0,0,0.91) 31%,rgba(0,0,0,0.03) 98%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(0,0,0,0.91) 16%,rgba(0,0,0,0.91) 31%,rgba(0,0,0,0.03) 98%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+h1 {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 52px;
+    color: white;
+    font-weight: bold;
+    background-color: #FE0000;
+    display: inline-block;
+    padding: 10px;
+}
+span {
+    color: white;
+    font-family: 'Inconsolata', monospace;
+}
+span.icons i {
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+}
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: white;
 }

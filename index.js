@@ -40,7 +40,7 @@ const RootView = Mn.View.extend({
 });
 
 const pane = new planes.Static({
-  template: _.noop,
+  template: _.template(require('./lib/pane.html')),
   id: 'pane'
 });
 
