@@ -4,6 +4,7 @@ const ItemCollection = require('./lib/ItemCollection');
 const ItemCollectionView = require('./lib/ItemCollectionView');
 
 const state = channel.request('state');
+const items = new ItemCollection();
 
 const board = new planes.Absolute({
   id: 'board',
@@ -20,14 +21,11 @@ const board = new planes.Absolute({
     },
   },
   onRender() {
-    const items = new ItemCollection();
     const itemsView = new ItemCollectionView({
       collection: items,
     });
 
-    items.fetch().then(() => {
-      this.showChildView('items', itemsView);
-    });
+    this.showChildView('items', itemsView);
   },
 });
 
@@ -53,27 +51,18 @@ const app = new Mn.Application({
     root.showChildView('board', board);
 
     pane.fillWindow();
-    pane.centerWithin(board);
+    //pane.centerWithin(board);
     board.setBounds(state.xbounds, state.ybounds);
 
     setInterval(() => {
       if (!state.paused) {
-        board.shift((state.position.x / 60), (state.position.y / 45));
+        board.shift(-0.25, -0.25);
       }
     }, 5);
   },
 });
 
-app.start();
-
-
-$('body').mousemove((e) => {
-  channel.trigger('change:state', { key: 'paused', value: false });
-  channel.trigger('change:state', {
-    key: 'position',
-    value: { 
-      x: ($('body').width() / 2) -e.pageX, 
-      y: ($('body').height() / 2) -e.pageY,
-    }
-  });
+items.fetch().then(() => {
+  app.start();
 });
+
