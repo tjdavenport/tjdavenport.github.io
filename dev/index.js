@@ -6,6 +6,10 @@ const ItemCollectionView = require('../lib/ItemCollectionView');
 const state = channel.request('state');
 const items = new ItemCollection();
 
+let shiftX = -0.25;
+let shiftY = -0.25;
+let multi = 1;
+
 const board = new planes.Absolute({
   id: 'board',
   template: _.template(require('../lib/board.html')),
@@ -30,6 +34,16 @@ const RootView = Mn.View.extend({
 });
 
 const pane = new planes.Static({
+  events: {
+    'click [data-action="multi"]'(e) {
+      multi += 9;
+      $(e.target).text(multi + 'x');
+
+      if (multi > 40) {
+        $(e.target).text('???');
+      }
+    }
+  },
   template: _.template(require('../lib/pane.html')),
   id: 'pane'
 });
@@ -38,8 +52,6 @@ const app = new Mn.Application({
   region: '#app',
   onStart() {
     const root = new RootView();
-    let shiftX = -0.25;
-    let shiftY = -0.25;
     this.showView(root);
     root.showChildView('pane', pane);
     root.showChildView('board', board);
@@ -65,7 +77,7 @@ const app = new Mn.Application({
 
     setInterval(() => {
       if (!state.paused) {
-        board.shift(shiftX, shiftY);
+        board.shift((shiftX * multi), (shiftY * multi));
       }
     }, 5);
   },
