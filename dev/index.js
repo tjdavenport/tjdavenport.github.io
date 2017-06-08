@@ -75,3 +75,6 @@ items.fetch().then(() => {
   app.start();
 });
 
+$('html, body').on('touchstart touchmove', (e) => { 
+   e.preventDefault(); 
+});
