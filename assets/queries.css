@@ -1,0 +1,35 @@
+@media only screen and (max-width: 600px) {
+    body {
+        display: block;
+    }
+    #sidebar {
+        height: 0px;
+        transition: height 0.5s;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 3.5rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+
+    .hidden-small {
+        display: none;
+    }
+    .visible-small {
+        display: auto;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .hidden-small {
+        display: auto;
+    }
+    .visible-small {
+        display: none;
+    }
+}

@@ -6,10 +6,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+    <link rel="stylesheet" type="text/css" href="/assets/queries.css">
   </head>
   <body>
-    <div class="shadow" style="height:100vh;z-index:1;overflow-y:scroll;">
-      <div style="padding:24px 0px;">
+    <div id="sidebar" class="shadow">
+      <div class="hidden-small" style="padding:24px 0px;">
         <div class="profile"></div>
       </div>
       <div class="lined">
@@ -36,7 +37,13 @@
       </div>
     </div>
     <div id="content" style="">
+      <div class="menu-btn visible-small" id="menu-btn">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </div>
       <%- content %>
     </div>
+    <script type="text/javascript" src="/assets/site.js"></script>
   </body>
 </html>
