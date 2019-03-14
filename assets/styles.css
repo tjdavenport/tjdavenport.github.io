@@ -1,0 +1,119 @@
+@import '/assets/reset.css';
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+#content {
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #1d1e19;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orchid {
+    color: #F92672;
+}
+.cyan {
+    color: #66D9EF;
+}
+.pumpkin {
+    color: #FD971F;
+}
+.shadow {
+    -webkit-box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
+    box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
+}
+
+.cursor {
+    background-color: #0c0c0b;
+}
+.profile {
+    border: 4px #66D9EF solid;
+    background-size:cover;
+    height:125px;
+    width:125px;
+    background-image:url('/assets/profile.jpg');
+    border-radius:999px;
+    margin: 0 auto;
+}
+.lined {
+    border-top:4px #1d1e19 solid;
+    border-bottom:4px #1d1e19 solid;
+}
+
+a {
+    color: white;
+    color: #A6E22E;
+    text-decoration: underline;
+}
+a:hover {
+    color: #A6E22E;
+}
+
+body {
+    font-size: 16px;
+    display: grid;
+    grid-template-columns: 256px auto;
+    font-family: 'Inconsolata', monospace;
+    background-color: #272822;
+    color: white;
+}
+hr {
+    height: 4px;
+    border: none;
+    width: 100%;
+    background-color: #3c3d34;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+}
+li a:hover {
+    color: #A6E22E;
+}
+li a:hover::after {
+    content: "()";
+    color: white;
+}
+li {
+    font-size: 1.5rem;
+    line-height: 42px;
+    counter-increment: count;
+}
+li::before {
+    color: #5c5f51;
+    padding: 8px;
+    content: counter(count);
+    margin-right: 8px;
+    background-color: #1d1e19;
+}
+ol.inverted li::before {
+    background-color: #5c5f51;
+    color: #1d1e19;
+}
+
+p {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+}
+h1 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 4rem;
+}
+h2 {
+    margin-top: 24px;
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+h3 {
+    margin-top: 16px;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
