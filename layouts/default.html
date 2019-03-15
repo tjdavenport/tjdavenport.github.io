@@ -5,6 +5,7 @@
     <title>TJ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/assets/styles.css">
     <link rel="stylesheet" type="text/css" href="/assets/queries.css">
   </head>
@@ -16,10 +17,10 @@
       <div class="lined">
         <ol>
           <li>
-            <a href="/">Home</a>
+            <a <% if (__name === 'default') { %>class="active"<% } %> href="/">Home</a>
           </li>
           <li>
-            <a href="/js-mentoring">JS Mentoring</a>
+            <a <% if (__name === 'js-mentoring') { %>class="active"<% } %> href="/js-mentoring">JS Mentoring</a>
           </li>
           <li>
             <a href="https://github.com/tjdavenport/">Github</a>
@@ -33,7 +34,7 @@
           <li>
             <a href="https://www.youtube.com/channel/UCVElheX7KKedvQ2xcXwmlNA">Youtube</a>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
     <div id="content" style="">

@@ -6,7 +6,6 @@
     height: 100vh;
     overflow-y: scroll;
     background-color: #1d1e19;
-    padding: 0 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +18,18 @@
     overflow-y:scroll;
 }
 
+.bg-wood {
+    background-image: url('/assets/wood.png');
+}
+.bg-orchid {
+    background-color: #F92672;
+}
+.bg-dark-1 {
+    background-color: #272822;
+} 
+.bg-dark-3 {
+    background-color: #121310;
+}
 .orchid {
     color: #F92672;
 }
@@ -26,14 +37,44 @@
     color: #66D9EF;
 }
 .pumpkin {
-    color: #FD971F;
+    color: rgb(230,219,116);
 }
 .shadow {
     -webkit-box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
     box-shadow: 4px 0px 16px -8px rgba(0,0,0,0.75);
 }
+.green {
+    color: #A6E22E;
+}
 
+.four-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+}
+.four-section > div {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.two-section {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+}
+.quote {
+    border-left: 4px #272822 solid;
+    padding-left: 16px;
+}
+.perk {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.perk i {
+    font-size: 7rem;
+}
 .menu-btn {
     position: fixed;
     top: 16px;
@@ -74,6 +115,13 @@
     border-radius:999px;
     margin: 0 auto;
 }
+.banner {
+    background-image: url(/assets/banner.jpg);
+    width: 100%;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+}
 .lined {
     border-top:4px #1d1e19 solid;
     border-bottom:4px #1d1e19 solid;
@@ -107,10 +155,10 @@ li a {
     color: white;
     text-decoration: none;
 }
-li a:hover {
+li a:hover, li a.active {
     color: #A6E22E;
 }
-li a:hover::after {
+li a:hover::after, li a.active::after {
     content: "()";
     color: white;
 }
@@ -131,6 +179,10 @@ ol.inverted li::before {
     color: #1d1e19;
 }
 
+strong {
+    font-weight: 700;
+    background-color: black;
+}
 p {
     margin-top: 16px;
     margin-bottom: 8px;
