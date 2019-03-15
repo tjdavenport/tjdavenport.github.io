@@ -1,3 +1,10 @@
+@media only screen and (max-width: 1200px) {
+    .two-section {
+        grid-template-rows: auto auto;
+        grid-template-columns: none;
+    }
+}
+
 @media only screen and (max-width: 900px) {
     .four-section {
         display: grid;

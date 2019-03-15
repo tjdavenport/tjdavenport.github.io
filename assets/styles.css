@@ -52,6 +52,7 @@
     display: grid;
     grid-template-columns: auto auto;
     width: 100%;
+    box-sizing: border-box;
 }
 .four-section > div {
     display: grid;
@@ -60,7 +61,7 @@
 .two-section {
     display: grid;
     width: 100%;
-    grid-template-columns: auto auto;
+    grid-template-columns: 40% 60%;
 }
 .quote {
     border-left: 4px #272822 solid;
@@ -126,6 +127,25 @@
     border-top:4px #1d1e19 solid;
     border-bottom:4px #1d1e19 solid;
 }
+
+[type="submit"] {
+    font-family: 'Inconsolata', monospace;
+    background-color: #A6E22E;
+    padding: 16px;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+input {
+    box-sizing: border-box;
+    border: 4px #272822 solid;
+    padding: 16px;
+    background-color: #121310;
+    font-family: 'Inconsolata', monospace;
+    font-size: 2rem;
+    color: #A6E22E;
+}
+input:focus { outline:none; }
 
 a {
     color: white;
