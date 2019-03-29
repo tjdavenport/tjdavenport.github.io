@@ -2,12 +2,18 @@
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
-    <title>TJ</title>
-    <meta name="description" content="">
+    <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/assets/styles.css">
     <link rel="stylesheet" type="text/css" href="/assets/queries.css">
+    <% Object.keys(meta).forEach(key => { %>
+      <meta name="<%= key %>" content="<%= meta[key] %>" />
+    <% }); %>
   </head>
   <body>
     <div id="sidebar" class="shadow">
@@ -20,7 +26,7 @@
             <a <% if (__name === 'default') { %>class="active"<% } %> href="/">Home</a>
           </li>
           <li>
-            <a <% if (__name === 'js-mentoring') { %>class="active"<% } %> href="/js-mentoring">JS Mentoring</a>
+            <a <% if (__name === 'js-mentoring') { %>class="active"<% } %> href="/js-mentoring/">JS Mentoring</a>
           </li>
           <li>
             <a href="https://github.com/tjdavenport/">Github</a>

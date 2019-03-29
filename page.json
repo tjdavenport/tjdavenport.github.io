@@ -1,3 +1,10 @@
 { 
-  "layout": "default.html"
+  "layout": "default.html",
+  "title": "Torrance Davenport",
+  "meta": {
+    "og:title": "Torrance Davenport",
+    "og:image": "https://www.builditwithtj.com/assets/profile.jpg",
+    "og:description": "A professional self-taught programmer with a fondness for Javascript.",
+    "description": "Torrance (TJ) Davenport, a professional self-taught programmer with a fondness for Javascript."
+  }
 }
